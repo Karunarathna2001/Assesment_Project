@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Create New Post</h1>
+
+  <div class="button d-flex justify-content-end">
+    <button (click)="Back()" mat-flat-button color="primary">Back</button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="info-wrap">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title" required>
+        <mat-error *ngIf="form.controls['title'].hasError('required')">
+          Title is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="info-wrap">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput formControlName="body" type="text"></textarea>
+        <mat-error *ngIf="form.controls['body'].hasError('required')">
+          Body is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="button">
+      <button mat-flat-button color="primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
